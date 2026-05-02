@@ -192,15 +192,15 @@ class Process implements Runnable {
             
         } catch (InterruptedException e) {
     System.out.println(Colors.RED + "  ✗ " + name + " could not acquire CPU access." + Colors.RESET);
-    Thread.currentThread().interrupt();
+   
+Thread.currentThread().interrupt();
 } finally {
     // Release CPU in finally block
     if (acquired) {
         SharedResources.cpuSemaphore.release();
-    
+    }
 }
-}
-}
+    }
     private String createProgressBar(int progress, int width) {
         int filled = (progress * width) / 100;
         StringBuilder bar = new StringBuilder("[");
